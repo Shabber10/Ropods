@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --neon-h {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 210;
+}
+
+
+
+
+@layer base {
+  :root {
+    animation: 10s linear infinite;
+    /* Light Blue Theme with ROPODS Neon */
+    --background: 197 71% 73%;
+    --foreground: 0 0% 100%;
+    --card: 205 100% 99%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 205 100% 99%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 205 50% 92%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 205 30% 90%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--neon-h) 100% 45%;
+    --radius: 0.5rem;
+
+    --neon-h: 210;
+    --neon: var(--neon-h) 100% 50%;
+    --neon-dim: var(--neon-h) 70% 35%;
+    --dark-surface: 197 71% 65%;
+    --dark-bg: 197 71% 73%;
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-h) 100% 40%), hsl(calc(var(--neon-h) + 18) 100% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(205 100% 98%), hsl(205 100% 100%));
+    --shadow-neon: 0 4px 20px hsl(var(--neon-h) 100% 45% / 0.2), 0 0 40px hsl(var(--neon-h) 100% 45% / 0.1);
+    --shadow-neon-sm: 0 4px 12px hsl(var(--neon-h) 100% 45% / 0.3);
+    --shadow-card: 0 10px 30px hsl(220 25% 4% / 0.05);
+
+    --neon-green: 149 100% 50%;
+    --neon-pink: 324 99% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #060b19;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-neon {
+    color: hsl(var(--neon));
+  }
+
+  .bg-dark-surface {
+    background: hsl(var(--dark-surface));
+  }
+
+  .bg-dark-bg {
+    background: hsl(var(--dark-bg));
+  }
+
+  .bg-gradient-neon {
+    background: var(--gradient-neon);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-neon {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .shadow-neon-sm {
+    box-shadow: var(--shadow-neon-sm);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .border-neon {
+    border-color: hsl(var(--neon) / 0.4);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--neon) / 0.6), 0 0 40px hsl(var(--neon) / 0.3);
+  }
+
+  .neon-line {
+    background: var(--gradient-neon);
+    height: 2px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-neon);
+  }
+
+  .text-neon-orange {
+    color: #FF5F1F;
+  }
+
+  .text-neon-lime {
+    color: #2fff05;
+  }
+
+  .text-neon-blue {
+    color: #0011fa;
+  }
+
+  .text-neon-gold {
+    color: #fad000;
+  }
+
+  .text-neon-green {
+    color: #00fd7a;
+  }
+
+  .text-neon-cyan {
+    color: #088bfe;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Float */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-neon {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px hsl(var(--neon-h) 100% 45% / 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 30px hsl(var(--neon-h) 100% 45% / 0.8), 0 0 60px hsl(var(--neon-h) 100% 45% / 0.3);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+
+.mask-radial-faded {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+.image-glow-effect {
+  filter: drop-shadow(0 0 25px hsl(var(--neon) / 0.5));
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* Morph Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: scale(0.92) translateY(40px) rotateX(10deg);
+  filter: blur(10px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity, filter;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: scale(1) translateY(0) rotateX(0);
+  filter: blur(0);
+}
+
+.reveal-on-scroll.reveal-left {
+  transform: translateX(-40px) scale(0.95);
+}
+
+.reveal-on-scroll.reveal-right {
+  transform: translateX(40px) scale(0.95);
+}
+
+.reveal-on-scroll.reveal-left.active,
+.reveal-on-scroll.reveal-right.active {
+  transform: translateX(0) scale(1);
+}
